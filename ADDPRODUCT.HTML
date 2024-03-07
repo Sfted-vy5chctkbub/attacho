@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Product</title>
+<style>
+    body {
+        margin: 1cm 0;
+        text-align: center;
+        background-color: rgb(136, 123, 106);
+            }   
+    h1 {
+        margin-top: 1cm;
+    }
+    .form-container {
+        margin-top: 1cm;
+        }
+    input[type="text"],
+    input[type="tel"],
+    input[type="number"],
+    select {
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        font-size: 18px;
+
+        
+    }
+    input[type="file"] {
+        margin-bottom: 10px;
+        border-radius: 10px;
+        
+    }
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #3498db; /* Blue */
+        color: #fff;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1>Add Product</h1>
+    <div class="form-container">
+        <form id="productForm" enctype="multipart/form-data" onsubmit="submitProduct(event)">
+            <label for="productName">Product Name:</label><br>
+            <input type="text" id="productName" name="productName" required><br>
+
+            <label for="telephoneNumber">Telephone Number:</label><br>
+            <input type="tel" id="telephoneNumber" name="telephoneNumber" pattern="[0-9]{10}" required><br>
+
+            <label for="price">Price:</label><br>
+            <input type="number" id="price" name="price" min="0" step="0.01" required><br>
+
+            <label for="category">Category:</label><br>
+            <select id="category" name="category" required>
+                <option value="1">Category 1</option>
+                <option value="2">Category 2</option>
+                <option value="3">Category 3</option>
+                <option value="4">Category 4</option>
+            </select><br>
+
+            <label for="imageUpload">Image Upload:</label><br>
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required><br>
+
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function submitProduct(event) {
+            event.preventDefault();
+            var formData = new FormData(document.getElementById("productForm"));
+            
+            // Here you can perform any action with the form data, such as sending it to a server
+            console.log("Form data submitted:", formData);
+        }
+    </script>
+</body>
+</html>
